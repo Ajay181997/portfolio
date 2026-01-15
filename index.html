@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Ajay Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            background: white;
+        }
+
+        /* ===== LAYOUT ===== */
+        .wrapper {
+            max-width: 1150px;
+            margin: 40px auto;
+            display: flex;
+            gap: 20px;
+        }
+
+        /* ===== SIDEBAR ===== */
+        .sidebar {
+            width: 300px;
+            background: #fff;
+            border: 1px solid rgb(128, 128, 128);
+            color: black;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .sidebar img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+
+            .wrapper {
+                flex-direction: column;
+                /* left upar, right niche */
+                margin: 15px;
+            }
+
+            .sidebar {
+                width: 100%;
+                /* full width */
+            }
+
+            @media (max-width: 768px) {
+
+                .contact input,
+                .contact textarea,
+                .contact select {
+                    width: 100%;
+                    /* full width on phone */
+                    font-size: 16px;
+                }
+
+                .contact form {
+                    max-width: 500px;
+                }
+
+
+                .contact form {
+                    text-align: left;
+                }
+
+            }
+
+
+            .main {
+                width: 100%;
+                padding: 20px;
+            }
+
+        }
+
+        .sidebar h2 {
+            font-size: 22px;
+            color: black;
+        }
+
+        .sidebar p {
+            color: #363636;
+            font-size: 14px;
+        }
+
+        .sidebar hr {
+            border: 0.5px solid #333;
+            margin: 20px 0;
+        }
+
+        .sidebar .info {
+            text-align: left;
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        /* ===== MAIN CARD ===== */
+        .main {
+            flex: 1;
+            background: white;
+            border: 1px solid rgb(128, 128, 128);
+            border-radius: 20px;
+            padding: 30px;
+        }
+
+        /* ===== TABS ===== */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .tabs button {
+            border: none;
+            background: #eee;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .tabs button.active {
+            background: #ff4d4d;
+            color: #fff;
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .section h3 {
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* ===== SKILLS ===== */
+        .skills span {
+            display: inline-block;
+            background: #eee;
+            padding: 6px 12px;
+            margin: 5px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        /* ===== PROJECTS ===== */
+        .project {
+            background: #111;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact input,
+        .contact textarea {
+            width: 50%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+        }
+
+        .contact button {
+            background: #ff4d4d;
+            color: black;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        h3 {
+            color: black;
+        }
+
+        ul {
+            color: #000000;
+        }
+
+        p.ab {
+            color: black;
+
+        }
+
+        h2,
+        label {
+            color: #000000;
+        }
+
+        .a {
+            color: white;
+        }
+
+        /* ===== CONTACT FORM FIX ===== */
+        .contact form {
+            max-width: 500px;
+        }
+
+        .contact input,
+        .contact textarea,
+        .contact select {
+            width: 50%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        /* ===== MOBILE ONLY ===== */
+        @media (max-width: 768px) {
+
+            .contact input,
+            .contact textarea,
+            .contact select {
+                width: 100%;
+                /* FULL WIDTH ON PHONE */
+                font-size: 16px;
+            }
+        }
+
+        .cta-buttons {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 12px 22px;
+            font-size: 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #ff4d4d;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #e63c3c;
+        }
+
+        .btn-secondary {
+            background-color: #000;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #333;
+        }
+
+        .btn-linkedin {
+            background-color: #0a66c2;
+            color: white;
+        }
+
+        .btn-linkedin:hover {
+            background-color: #004182;
+        }
+
+        .cta-buttons {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 12px 22px;
+            font-size: 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: 0.3s ease;
+            color: white;
+        }
+
+
+        .btn-email {
+            background-color: #d93025;
+        }
+
+        .btn-email:hover {
+            background-color: #b3261e;
+        }
+
+
+        .btn-whatsapp {
+            background-color: #25d366;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1ebe5d;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+
+        <aside class="sidebar">
+            <img src="ajay.jpeg" alt="profile">
+            <h2 class="a">Ajay Vishwakarma</h2>
+            <p>Mechanical Design Engineer | Costing & Estimation Specialist | Project Execution (Glass & Metal) |
+                Technical & Pre-Sales Engineer | Statistics & Analytics</p>
+
+            <hr>
+
+            <div class="info">
+                <i class="fa-solid fa-envelope"></i> vishwakarmaajay12059@gmail.com<br>
+                <i class="fa-solid fa-phone"></i> +971 56 303 4978 <br>
+                <i class="fa-solid fa-location-dot"></i> Al Dhaid, Sharjah, UAE
+            </div>
+        </aside>
+
+
+        <main class="main">
+
+
+            <div class="tabs">
+                <button class="active" onclick="openTab('home',this)">Home</button>
+                <button onclick="openTab('about',this)">About</button>
+                <button id="serviceTab" onclick="openTab('service',this)">Service</button>
+                <button onclick="openTab('skills',this)">Skills</button>
+                <button onclick="openTab('projects',this)">Projects</button>
+                <button onclick="openTab('contact',this)">Contact</button>
+            </div>
+
+
+            <section id="home" class="section active">
+                <h3><b>Home</b></h3>
+                <h4><b>Precision in Engineering, Impact in Digital Presence</b></h4><br>
+                <p>Hi, I’m Ajay Vishwakarma Mechanical Estimation & Costing Engineer | Glass & Façade Industry |
+                    Digital & Technical Solutions I combine over 6 years of experience in engineering projects with
+                    expertise in digital marketing, web development, and branding. I help businesses reduce costs,
+                    optimise projects, and grow their online visibility and brand identity.</p>
+                <div class="cta-buttons">
+                    <a onclick="openServiceTab()" class="btn btn-primary">View My Services</a>
+                    <a href="https://www.linkedin.com/in/ajay-vishwakarma-p?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                        target="_blank" class="btn btn-linkedin">
+                        Connect on LinkedIn
+                    </a>
+
+                    <a href="mailto:vishwakarmaajay12059@gmail.com" class="btn btn-email">
+                        Email Me
+                    </a>
+
+
+                    <a href="https://wa.me/917021451255" target="_blank" class="btn btn-whatsapp">
+                        WhatsApp Me
+                    </a>
+                </div>
+
+
+
+            </section>
+            <section id="about" class="section">
+                <h3><b>About</b></h3>
+                <h4><b>Engineering Expertise Meets Digital Creativity</b></h4><br>
+                <p>I am a B.Tech Mechanical Engineer specialising in estimation, costing, quotation development, and
+                    project execution within the glass processing and façade industry. In addition to technical
+                    expertise, I
+                    provide digital solutions including social media management, SEO, website development, and
+                    graphic design, allowing businesses to thrive both technically and digitally.</p><br>
+                <h4>Core Values:</h4>
+                <ul>
+                    <li>Accuracy & efficiency</li>
+                    <li>Client-focused approach</li>
+                    <li>Multi-disciplinary skillset</li>
+                    <li>Result-driven strategies</li>
+                </ul>
+
+
+            </section>
+
+            <!-- SERVICES -->
+            <section id="service" class="section">
+                <h3><b>Service</b></h3>
+                <h4><b>From Cost Estimates to Digital Growth</b></h4><br>
+                <h4 class="ab">Engineering & Technical Services:</h4>
+                <ul>
+                    <li>BOQ preparation & detailed cost estimation</li>
+                    <li>Rate analysis & Cost optimisation</li>
+                    <li>Quotation & tender document preparation</li>
+                    <li>Glass processing & façade system costing</li>
+                    <li>Project execution & inventory support</li>
+                    <br>
+                </ul>
+                <h4 class="ab">Digital Marketing & Online Services:</h4>
+                <ul>
+                    <li>Social Media Handling: Content creation, scheduling, and engagement</li>
+                    <li>SEO & Website Optimisation: On-page SEO, keyword research, content strategy</li>
+                    <li>Graphic & Branding Design: Logos, business profiles, brochures, social media creatives</li>
+                    <li>Web Development on GitHub: Professional portfolio websites, landing pages, business sites</li>
+                </ul>
+            </section>
+
+            <!-- SKILLS -->
+            <section id="skills" class="section skills">
+                <h3><b>Skills</b></h3>
+                <h4><b>A Blend of Technical Precision & Digital Creativity</b></h4><br>
+                <h4 class="ab">Engineering & Technical Skills:</h4>
+                <ul>
+                    <li>Estimation & Costing, BOQ, AutoCAD</li>
+                    <li>Glass & Façade Systems Knowledge</li>
+                    <li>ERP Systems & Power BI (Basic–Intermediate)</li>
+                    <li>MS Excel (Advanced), Word, PowerPoint</li><br>
+                </ul>
+                <h4 class="ab">Digital & Creative Skills:</h4>
+                <ul>
+                    <li>SEO & Digital Marketing Fundamentals</li>
+                    <li>Canva Design, Logo & Branding</li>
+                    <li>Social Media Content Creation</li>
+                    <li>Website Development on GitHub</li>
+                    <li>Business & Portfolio Website Content Writing</li><br>
+                </ul>
+                <h4 class="ab">Soft Skills:</h4>
+                <ul>
+                    <li>Client communication & coordination</li>
+                    <li>Problem-solving & time management</li>
+                    <li>Project planning & execution</li>
+                </ul>
+
+            </section>
+
+            <!-- PROJECTS -->
+            <section id="projects" class="section">
+                <h3><b>Projects</b></h3>
+                <h4><b>Delivering Results, One Project at a Time</b></h4><br>
+                <h4 class="ab">Engineering Projects:</h4>
+                <ul>
+                    <li>Commercial Glass Project – Cost Estimation & Quotation: BOQ preparation, cost calculation,
+                        quotation submission; Result: Competitive pricing and efficient project execution</li>
+                    <li>Façade System Project – Execution Support: Inventory tracking, coordination with production;
+                        Result: Reduced delays & improved cost control</li><br>
+                </ul>
+                <h4 class="ab">Digital / Creative Projects:</h4>
+                <ul>
+                    <li>Social Media Branding for SMEs: Content creation, scheduling, engagement tracking; Result:
+                        Increased followers & engagement</li>
+                    <li>Logo & Portfolio Websites: Canva-based logos & GitHub-hosted web portfolios; Result:
+                        Professional digital identity for clients</li>
+                </ul>
+
+            </section>
+
+            <!-- CONTACT -->
+            <section id="contact" class="section contact">
+                <h3><b>Contact</b></h3>
+                <h4><b>Let’s Connect & Build Something Great</b></h4>
+                <form action="#" onsubmit="sendWhatsApp(); return false;" class="a">
+                    <h2>Service Request</h2>
+
+                    <label>Name</label>
+                    <input type="text" placeholder="Enter Your Full Name" required><br><br>
+
+                    <label>WhatsApp Number</label>
+                    <input type="tel" required placeholder="10 digit number"><br><br>
+
+                    <label>Email Address</label>
+                    <input type="email" required placeholder="example@gmail.com"><br><br>
+
+                    <label>Service Required</label>
+                    <select required>
+                        <option value="">Select Service</option>
+                        <option>BOQ preparation & detailed cost estimation</option>
+                        <option>Rate analysis & Cost optimisation</option>
+                        <option>Quotation & tender document preparation</option>
+                        <option>Glass processing & façade system costing</option>
+                        <option>Project execution & inventory support</option>
+                       <option> Social Media Handling: Content creation, scheduling, and engagement</option>
+                       <option> SEO & Website Optimisation: On-page SEO, keyword research, content strategy</option>
+                       <option> Graphic & Branding Design: Logos, business profiles, brochures, social media creatives</option>
+                       <option> Web Development on GitHub: Professional portfolio websites, landing pages, business sites</option>
+                    </select><br><br>
+
+                    <label>Message</label>
+                    <textarea rows="1" required></textarea><br><br>
+
+                    <button type="submit">Send Request</button>
+
+                </form>
+            </section>
+
+        </main>
+    </div>
+    <script>
+        function showMessage() {
+            alert("Your Information Submited");
+        }
+    </script>
+    <script>
+        function openServiceTab() {
+            let serviceBtn = document.getElementById("serviceTab");
+            openTab("service", serviceBtn);
+        }
+    </script>
+
+
+    <script>
+        function openTab(id, btn) {
+            document.querySelectorAll(".section").forEach(sec => {
+                sec.classList.remove("active");
+            });
+            document.getElementById(id).classList.add("active");
+
+            document.querySelectorAll(".tabs button").forEach(b => {
+                b.classList.remove("active");
+            });
+            btn.classList.add("active");
+        }
+    </script>
+    <script>
+        function sendWhatsApp() {
+
+            let name = document.querySelector("input[type=text]").value;
+            let phone = document.querySelector("input[type=tel]").value;
+            let email = document.querySelector("input[type=email]").value;
+            let service = document.querySelector("select").value;
+            let message = document.querySelector("textarea").value;
+
+            let whatsappNumber = "971 56 303 4978"; // apna number (91 ke sath)
+
+            let text =
+                "Service Request%0A" +
+                "Name: " + name + "%0A" +
+                "Phone: " + phone + "%0A" +
+                "Email: " + email + "%0A" +
+                "Service: " + service + "%0A" +
+                "Message: " + message;
+
+            let url = "https://wa.me/" + whatsappNumber + "?text=" + text;
+
+            window.open(url, "_blank");
+        }
+    </script>
+
+</body>
+
+</html>

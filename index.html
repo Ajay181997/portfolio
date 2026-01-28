@@ -6,6 +6,8 @@
     <title> Ajay Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+
 
 
     <style>
@@ -366,18 +368,21 @@
                     expertise in digital marketing, web development, and branding. I help businesses reduce costs,
                     optimise projects, and grow their online visibility and brand identity.</p>
                 <div class="cta-buttons">
-                    <a onclick="openServiceTab()" class="btn btn-primary">View My Services</a>
+                    <a onclick="openServiceTab()" class="btn btn-primary"> <i class="fa-solid fa-briefcase"></i> View My
+                        Services</a>
                     <a href="https://www.linkedin.com/in/ajay-vishwakarma-p?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                        target="_blank" class="btn btn-linkedin">
+                        target="_blank" class="btn btn-linkedin"><i class="fa-brands fa-linkedin-in"></i>
                         Connect on LinkedIn
                     </a>
 
-                    <a href="mailto:vishwakarmaajay12059@gmail.com" class="btn btn-email">
+                    <a href="mailto:vishwakarmaajay12059@gmail.com" class="btn btn-email"><i
+                            class="fa-solid fa-envelope"></i>
                         Email Me
                     </a>
 
 
                     <a href="https://wa.me/917021451255" target="_blank" class="btn btn-whatsapp">
+                        <i class="fa-brands fa-whatsapp"></i>
                         WhatsApp Me
                     </a>
                 </div>
@@ -479,14 +484,19 @@
             <section id="contact" class="section contact">
                 <h3><b>Contact</b></h3>
                 <h4><b>Let’s Connect & Build Something Great</b></h4>
-                <form action="#" onsubmit="sendWhatsApp(); return false;" class="a">
+                <form action="#" onsubmit="sendWhatsApp(); return false;">
                     <h2>Service Request</h2>
 
                     <label>Name</label>
                     <input type="text" placeholder="Enter Your Full Name" required><br><br>
 
                     <label>WhatsApp Number</label>
-                    <input type="tel" required placeholder="10 digit number"><br><br>
+                    <input type="text" name="phone" placeholder="10 digit mobile number" maxlength="10" required
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
+
+
+
+                    <br><br>
 
                     <label>Email Address</label>
                     <input type="email" required placeholder="example@gmail.com"><br><br>
@@ -499,14 +509,17 @@
                         <option>Quotation & tender document preparation</option>
                         <option>Glass processing & façade system costing</option>
                         <option>Project execution & inventory support</option>
-                       <option> Social Media Handling: Content creation, scheduling, and engagement</option>
-                       <option> SEO & Website Optimisation: On-page SEO, keyword research, content strategy</option>
-                       <option> Graphic & Branding Design: Logos, business profiles, brochures, social media creatives</option>
-                       <option> Web Development on GitHub: Professional portfolio websites, landing pages, business sites</option>
+                        <option> Social Media Handling: Content creation, scheduling, and engagement</option>
+                        <option> SEO & Website Optimisation: On-page SEO, keyword research, content strategy</option>
+                        <option> Graphic & Branding Design: Logos, business profiles, brochures, social media creatives
+                        </option>
+                        <option> Web Development on GitHub: Professional portfolio websites, landing pages, business
+                            sites</option>
                     </select><br><br>
 
                     <label>Message</label>
                     <textarea rows="1" required></textarea><br><br>
+                   
 
                     <button type="submit">Send Request</button>
 
@@ -545,7 +558,7 @@
         function sendWhatsApp() {
 
             let name = document.querySelector("input[type=text]").value;
-            let phone = document.querySelector("input[type=tel]").value;
+            let phone = document.querySelector("input[type=text]").value;
             let email = document.querySelector("input[type=email]").value;
             let service = document.querySelector("select").value;
             let message = document.querySelector("textarea").value;

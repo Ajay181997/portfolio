@@ -491,7 +491,7 @@
                     <input type="text" placeholder="Enter Your Full Name" required><br><br>
 
                     <label>WhatsApp Number</label>
-                    <input type="text" name="phone" placeholder="10 digit mobile number" maxlength="10" required
+                    <input type="number" name="phone" placeholder="10 digit mobile number" maxlength="10" required
                         oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
 
 
@@ -558,7 +558,7 @@
         function sendWhatsApp() {
 
             let name = document.querySelector("input[type=text]").value;
-            let phone = document.querySelector("input[type=text]").value;
+            let phone = document.querySelector("input[type=number]").value;
             let email = document.querySelector("input[type=email]").value;
             let service = document.querySelector("select").value;
             let message = document.querySelector("textarea").value;

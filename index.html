@@ -491,9 +491,8 @@
                     <input type="text" placeholder="Enter Your Full Name" required><br><br>
 
                     <label>WhatsApp Number</label>
-                    <input type="number" name="phone" placeholder="10 digit mobile number" maxlength="10" required
-                        oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
-
+                    <input type="tel" name="mobile" required placeholder="10 digit number" maxlength="10"
+                            pattern="[0-9]{10}">
 
 
                     <br><br>
